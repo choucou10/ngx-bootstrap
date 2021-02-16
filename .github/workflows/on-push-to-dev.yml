@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - development
+      - ngx-bs7
 
 env:
   NX_BRANCH: ${{ github.event.number }}
@@ -123,6 +124,7 @@ jobs:
       # end: npm ci && build
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        id: firebase_hosting_preview
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NGX_BOOTSTRAP_DEMO }}'
